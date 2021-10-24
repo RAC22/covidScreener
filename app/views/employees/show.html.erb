@@ -1,0 +1,18 @@
+<div class="card">
+<p>
+  <strong>First name:</strong>
+  <%= @employee.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @employee.last_name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @employee.title %>
+</p>
+</div>
+<%= link_to 'Edit', edit_employee_path(@employee), class:"btn btn-secondary" %> 
+<%= link_to 'Back', employees_path, class:"btn btn-dark" %>
