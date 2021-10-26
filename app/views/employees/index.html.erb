@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+
 <h1>Employee List</h1>
 
 <table class="table table-bordered">
@@ -27,22 +27,3 @@
 <br>
 
 <%= link_to 'New Employee', new_employee_path, class:"btn btn-primary" %>
-<% else %>
-<h1>Covid Screener Questionare application</h1>
-<br/>
-<h3>Who should be screened?</h3>
-<ul>
-Businesses can consider screening employees for symptoms, but this may have a limited effect as the
-virus that causes COVID-19 can also be spread by people who are not showing symptoms.
-</ul>
-<h3>
-When should screening occur? 
-</h3>
-<ul>
-If screening is done, an employee should complete the screening prior to the beginning of each shift.
-</ul>
-<ul>
-Screening can be done either by attestation before arrival or on-site at a checkpoint near the entrance
-to the facility. 
-</ul>
-<% end %>
