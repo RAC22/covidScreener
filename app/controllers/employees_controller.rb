@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [ :show, :edit, :update, :destroy ]
-  before_action :authenticate_user!, except: [:index]
-  before_action :correct_user, only: [:edit, :update, :destroy,:show]
+  before_action :authenticate_user!, only: [ :index, :edit, :update, :destroy, :show ]
+  before_action :correct_user, only: [:index, :edit, :update, :destroy, :show ]
   # GET /employees or /employees.json
   def index
     @employees = Employee.all
@@ -28,7 +28,7 @@ class EmployeesController < ApplicationController
     
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: "Employee was successfully created." }
+        format.html { redirect_to employees_path, notice: "Employee was successfully created." }
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -61,7 +61,7 @@ class EmployeesController < ApplicationController
 
 def correct_user
   @employee = current_user.employees.find_by(id: params[:id])
-  redirect_to employees_path, notice: "Not Authorized" if @employee.nil?
+  # redirect_to root_path, notice: "Not Authorized" if @employee.nil?
 end
 
   private
