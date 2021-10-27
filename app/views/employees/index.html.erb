@@ -17,7 +17,7 @@
         <td><%= link_to employee.first_name + " " + employee.last_name,employee %></td>
         <td><%= employee.title %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee), class:"btn btn-dark btn-sm" %></td>
-        <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm " %></td>
+        <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
       </tr>
       <% end %>
     <% end %>
