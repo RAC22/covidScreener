@@ -1,13 +1,27 @@
-<h4>LAUNCHED!</h4>
+<div class="container">
 
+<h4>Who's checking in?</h4>
+
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<ul class="list-group">
 <% if @employees != nil %>
 <% @employees.each do |employee| %>
     <% if employee.user == current_user %>
-      <ul>
-        <li><%= link_to employee.first_name + " " + employee.last_name,employee %></li>
-        <li><%= employee.title %></li>
-      </ul>
-      <br/>
+      
+        <li class="list-group-item"><span style="font-size: 1.5rem"><%= employee.first_name + " " + employee.last_name %></span><span>&nbsp;</span>
+        <i><%= employee.title %></i> </li>
+             
+      
       <% end %>
     <% end %>
 <% end %>
+</ul>
+</div>
