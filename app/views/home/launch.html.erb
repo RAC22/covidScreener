@@ -1,0 +1,13 @@
+<h4>LAUNCHED!</h4>
+
+<% if @employees != nil %>
+<% @employees.each do |employee| %>
+    <% if employee.user == current_user %>
+      <ul>
+        <li><%= link_to employee.first_name + " " + employee.last_name,employee %></li>
+        <li><%= employee.title %></li>
+      </ul>
+      <br/>
+      <% end %>
+    <% end %>
+<% end %>

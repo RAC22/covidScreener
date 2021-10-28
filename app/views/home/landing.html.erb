@@ -1,0 +1,25 @@
+<h4>Welcome! <%= @username %></h4>
+
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Employees:</h5>
+    <p class="card-text">Add the people who will be signing in and out, while making attestations to their COVID-19 status</p>
+    <%= link_to 'Add/Edit Employees', employees_path, class:"btn btn-primary" %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Attestations:</h5>
+    <p class="card-text">Questions that will be asked to visitors and employees. Use the default attestations or add/edit them according to your local guidlines.</p>
+    <%= link_to 'Add/Edit Attestations', questions_path, class:"btn btn-secondary" %>
+  </div>
+</div>
+
+<br/>
+<br/>
+
+<div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to 'Launch Application', home_launch_path, class:"btn btn-primary"%>
+</div>

@@ -16,7 +16,9 @@
     <title>CovidScreener</title>
   </head>
   <body>
-    <%= render "home/header"%>
+    <%if action_name != "launch"%>
+      <%= render "home/header"%>
+    <% end %>
     <br/>
     <div class="container">
     
@@ -28,6 +30,7 @@
     
       <%= yield %>
     </div>
+    
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
