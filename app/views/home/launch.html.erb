@@ -15,11 +15,13 @@
 <% if @employees != nil %>
 <% @employees.each do |employee| %>
     <% if employee.user == current_user %>
-      
-        <li class="list-group-item"><span style="font-size: 1.5rem"><%= employee.first_name + " " + employee.last_name %></span><span>&nbsp;</span>
-        <i><%= employee.title %></i> </li>
-             
-      
+      <% string = %>
+        <li class="list-group-item list-group-item-action">
+          <span style="font-size: 1.5rem">
+            <%=link_to employee.first_name + " " + employee.last_name,home_questionaire_path, style:"display:block;text-decoration:none;color:black;" %>
+          </span>
+          <i><%=link_to employee.title, home_questionaire_path, style:"display:block;text-decoration:none;color:grey;" %></i>
+        </li>      
       <% end %>
     <% end %>
 <% end %>

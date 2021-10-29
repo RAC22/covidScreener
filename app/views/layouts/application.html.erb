@@ -16,7 +16,7 @@
     <title>CovidScreener</title>
   </head>
   <body>
-    <%if action_name != "launch"%>
+    <%if ["launch", "questionaire"].exclude?(action_name)%>
       <%= render "home/header"%>
     <% end %>
     <br/>
