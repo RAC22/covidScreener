@@ -5,8 +5,7 @@ class HomeController < ApplicationController
   def landing
   end
   def launch
-    @employees = Employee.all
-    
+    @employees = Employee.search(params[:search])
   end
   def questionaire
     @questions = Question.all

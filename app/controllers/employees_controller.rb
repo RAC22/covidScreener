@@ -72,6 +72,6 @@ end
 
     # Only allow a list of trusted parameters through.
     def employee_params
-      params.require(:employee).permit(:first_name, :last_name, :title, :user_id)
+      params.require(:employee).permit(:first_name, :last_name, :title, :user_id, :search)
     end
 end
