@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   end
   def launch
     @employees = Employee.all
+    
   end
   def questionaire
     @questions = Question.all

@@ -1,5 +1,5 @@
 <div style="position: relative;">
-    <%= link_to '', :back, class:"btn-close", style:"position:absolute;top:0;right:0;" %>
+    <%= link_to "", :back, class:"btn-close", style:"position:absolute;top:0;right:0;" %>
     <ul class="container">
         <% @questions.each do |question| %>
             <% if question.user == current_user %>                
@@ -7,9 +7,9 @@
                     <h4 class="col-10"><br/><%= question.attestation %><br/></h4>
                     <div class="col-2">
                         <br/>
-                        <%= link_to 'Yes', root_path, class:"btn btn-outline-success  " %>
+                        <%= link_to 'Yes', '', class:"btn btn-outline-success  " %>
                         <span>&nbsp</span>
-                        <%= link_to 'No', root_path, class:"btn btn-outline-danger  " %>
+                        <%= link_to 'No', '', class:"btn btn-outline-danger  " %>
                         <br/><br/><br/>
                     </div>
                 </li>                 

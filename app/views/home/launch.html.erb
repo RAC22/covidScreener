@@ -2,14 +2,22 @@
 
 <h4>Who's checking in?</h4>
 
-<nav class="navbar navbar-light bg-light">
+<%# <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
-</nav>
+</nav> %>
+
+<%= form_tag home_launch_path, method: 'get' do %>
+  <p>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
+<h1><%= @searchResult %></h1>
 
 <ul class="list-group">
 <% if @employees != nil %>
