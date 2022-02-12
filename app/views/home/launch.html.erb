@@ -9,23 +9,25 @@
     <%= text_field_tag :search, params[:search], class:"form-control me-2", placeholder:"First Name" %>
     <%= submit_tag "Search", :name => nil, class:"btn btn-outline-success" %>
   
-<% end %>
+    <% end %>
   </div>
 </nav>
 
 <ul class="list-group">
 <% if @employees != nil %>
-<% @employees.each do |employee| %>
+  <% @employees.each do |employee| %>
     <% if employee.user == current_user %>
-      <% string = %>
-        <li class="list-group-item list-group-item-action">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="col-11">
           <span style="font-size: 1.5rem">
-            <%=link_to employee.first_name + " " + employee.last_name,home_questionaire_path, style:"display:block;text-decoration:none;color:black;" %>
+            <%=link_to employee.first_name + " " + employee.last_name, home_questionaire_path(:id => employee.id), style:"display:block;text-decoration:none;color:black;" %>
           </span>
-          <i><%=link_to employee.title, home_questionaire_path, style:"display:block;text-decoration:none;color:grey;" %></i>
-        </li>      
-      <% end %>
+          <i><%=link_to employee.title, home_questionaire_path(:id => employee.id), style:"display:block;text-decoration:none;color:grey;" %></i>
+        </div>
+        <span class="<%= employee.signed_in ? 'badge rounded-pill bg-success' : 'badge rounded-pill bg-secondary'%>">&#8203;</span>
+      </li>      
     <% end %>
+  <% end %>
 <% end %>
 </ul>
 </div>

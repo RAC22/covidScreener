@@ -1,29 +1,39 @@
 <div style="position: relative;">
     <%= link_to "", home_launch_path, class:"btn-close", style:"position:absolute;top:0;right:0;" %>
-    <br/>
-    <ul class="container">
-        <% @questions.each do |question| %>
-            <% if question.user == current_user %>                
-                <li class="row list-group-item-action row-2">
-                    <h4 class="col-10"><br/><%= question.attestation %><br/></h4>
-                    <div class="col-2">
-                        <br/>
-                        <%= link_to 'Yes', '', class:"btn btn-outline-success", type:"radio", id:"inlineRadio1", value:"option1", name:"inlineRadioOptions" %>
-                        <span>&nbsp</span>
-                        <%= link_to 'No', '', class:"btn btn-outline-danger", type:"radio", id:"inlineRadio2", value:"option2", name:"inlineRadioOptions" %>
-                        <br/><br/><br/>
-                    </div>
-                </li>                 
-            <% end%>
-        <% end %>
-    </ul>
+    <br/>    
+    <%= form_with do |form|%>
+        <ul class="container">
+            <% @questions.each do |question| %>
+                <% if question.user == current_user %>                
+                    <li class="row list-group-item-action row-2">
+                        <h4 class="col-10"><br/><%= question.attestation %><br/></h4>
+                        <div class="col-2"><br/>
+                                
+                                <%= hidden_field_tag :id, @current_employee.id %>
+                                
+                                <%= form.radio_button question.id ,question.attestation, :checked => false, class:"btn-check", id:"success-outlined#{question.id}" %>
+                                <%= form.label :question, "Yes", class:"btn btn-outline-success", for:"success-outlined#{question.id}" %>
+                                
+                                <%= form.radio_button question.id , '', :checked => false, class:"btn-check", id:"danger-outlined#{question.id}" %>
+                                <%= form.label :question, "No", class:"btn btn-outline-danger", for:"danger-outlined#{question.id}" %>
+                            
+                            <br/>
+                        </div>                    
+                    </li>                 
+                <% end%>
+            <% end %>
+        </ul>
+        <br/>
+        <div class="d-grid gap-2 col-6 mx-auto">
+        <%= form.submit "Submit", class:"btn btn-primary" %>
+        </div>
+    <% end %>
+    <br/>    
 </div>
+<%= form_with do |f|%>
+    <%= hidden_field_tag :id, @current_employee.id %>
+    <%= f.radio_button :remove_answer , '', :checked => false, :onclick =>"this.parentNode.submit()" %>
+<% end %>
 
-<%# <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-  <label class="form-check-label" for="inlineRadio1">1</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-  <label class="form-check-label" for="inlineRadio2">2</label>
-</div> %>
+                        <%= @current_employee.answered_yes %>
+

@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'home/landing'
   get 'home/launch'
   get 'home/questionaire'
+  post 'home/questionaire'
+  get 'home/confirmation'
+  get 'home/signoutt'
+  get 'home/failed'
   root 'home#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,0 +1,18 @@
+<head>
+<script type="text/javascript">
+function delayedRedirect(){
+    window.location = "/home/launch";
+}
+setTimeout('delayedRedirect()', 30000);
+</script>
+</head>
+<body>
+<section class="position-absolute top-50 start-50 translate-middle">
+    <h1>Your answers indicate a risk of Covid exposure:</h1>
+    <h2>Please leave the premesis and contact a Supervisor.</h2>
+    <br/>
+    <div class="d-grid gap-2 col-4 mx-auto">
+        <%= link_to "Acknowledge", home_launch_path, class:"btn btn-primary" %>
+    </div>
+</section>
+</body>

@@ -1,6 +1,6 @@
 class Employee < ApplicationRecord
     belongs_to :user
-
+    
     def self.search(search)
         if search
             employeename = Employee.find_by(first_name: search)
