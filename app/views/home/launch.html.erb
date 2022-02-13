@@ -24,7 +24,7 @@
           </span>
           <i><%=link_to employee.title, home_questionaire_path(:id => employee.id), style:"display:block;text-decoration:none;color:grey;" %></i>
         </div>
-        <span class="<%= employee.signed_in ? 'badge rounded-pill bg-success' : 'badge rounded-pill bg-secondary'%>">&#8203;</span>
+        <span class="<%= employee.signed_in? ? 'badge rounded-pill bg-success' : 'badge rounded-pill bg-secondary'%>">&#8203;</span>
       </li>      
     <% end %>
   <% end %>
