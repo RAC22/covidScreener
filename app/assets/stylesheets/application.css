@@ -14,4 +14,17 @@
  *= require_self
  */
 
-
+.signedOut {
+    height: 1.4rem;
+    width: 1.4rem;
+    border-radius: 50%;
+    background-color: rgb(200, 198, 198);
+    box-shadow: 0 0 10px rgb(200, 198, 198);
+}
+.signedIn {
+    height: 1.4rem;
+    width: 1.4rem;
+    border-radius: 50%;
+    background-color: rgb(0, 175, 0);
+    box-shadow: 0 0 10px rgb(0, 175, 0);
+}
