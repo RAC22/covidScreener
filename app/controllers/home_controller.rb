@@ -5,10 +5,10 @@ class HomeController < ApplicationController
   def landing
   end
   def launch
-    @employees = Employee.search(params[:search])
+    @employees = current_user.employees.search(params[:search]).order('id ASC')
   end
   def questionaire
-    @questions = current_user.questions
+    @questions = current_user.questions.order('id ASC')
     @current_employee = Employee.find(params[:id])
     if params[:add_answer]
       array = Array.new
