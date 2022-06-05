@@ -1,6 +1,6 @@
 <div class="container">
 
-<h4>Who's checking in?</h4>
+<h4>Who's checking in/out?</h4>
 
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
@@ -12,6 +12,11 @@
     <% end %>
   </div>
 </nav>
+<br/>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to 'Sign in as Guest', employees_path, class:"btn btn-primary"%>
+</div>
+<br/>
 
 <ul class="list-group">
 <% if @employees != nil %>
