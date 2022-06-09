@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
          has_many :employees, dependent: :destroy
          has_many :questions, dependent: :destroy
+         has_many :guests, dependent: :destroy
 
          after_create do
-           self.employees.create(first_name: "Guest", last_name: "", title: "")
            self.questions.create(attestation: "Have you experienced any of the following within the past 14 days (not due to some other known condition or treatment)?
            New fever or sense of having a fever (100.0°F or higher)")
            self.questions.create(attestation: "New cough, shortness of breath, difficulty breathing, fatigue, headache, chills, sore throat, congestion, runny nose, nausea, vomiting or diarrhea")

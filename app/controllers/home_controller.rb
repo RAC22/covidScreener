@@ -8,8 +8,12 @@ class HomeController < ApplicationController
     @employees = current_user.employees.search(params[:search]).order('id ASC')
   end
   def questionaire
-    @questions = current_user.questions.order('id ASC')
-    @current_employee = Employee.find(params[:id])
+    if (params[:guest_name])
+      @current_employee = Guest.find(params[:id])
+    else
+      @current_employee = Employee.find(params[:id])
+    end
+    @questions = current_user.questions.order('id ASC') 
     if params[:add_answer]
       array = Array.new
       array = array.push(@current_employee.answered_yes)

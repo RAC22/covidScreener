@@ -1,0 +1,34 @@
+<%= link_to "", home_launch_path, class:"btn-close", style:"position:absolute;top:0;right:0;" %>
+<%= form_with(model: guest) do |form| %>
+  <% if guest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+
+      <ul>
+        <% guest.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.text_field :first_name, class:"form-control", placeholder:"First Name" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <% form.label :last_name %>
+    <%= form.text_field :last_name, class:"form-control", placeholder:"Last Name" %>
+  </div>
+  <br/>
+    
+  
+  <%= form.number_field :user_id, id: :guest_user_id, value:current_user.id, type:"hidden" %>
+  
+  
+  <br/>
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+  <br/>
+<% end %>
