@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/landing'
   get 'home/launch'
+  delete 'home/launch'
   get 'home/questionaire'
   post 'home/questionaire'
   get 'home/confirmation'

@@ -35,4 +35,21 @@
   <% end %>
 <% end %>
 </ul>
+<ul class="list-group">
+<% if @guests != nil %>
+  <% @guests.each do |guest| %>
+    <% if guest.user == current_user %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="col-11">
+          <span style="font-size: 1.5rem">
+            <%=link_to guest.first_name + " " + guest.last_name, home_questionaire_path(:id => guest.id, :guest_name => guest.first_name << guest.last_name), style:"display:block;text-decoration:none;color:black;" %>
+          </span>
+          <i><%=link_to 'Guest', home_questionaire_path(:id => guest.id, :guest_name => guest.first_name << guest.last_name), style:"display:block;text-decoration:none;color:grey;" %></i>
+        </div>
+        <span class="<%= guest.signed_in? ? 'signedIn' : 'signedOut'%>">&#8203;</span>
+      </li>      
+    <% end %>
+  <% end %>
+<% end %>
+</ul>
 </div>

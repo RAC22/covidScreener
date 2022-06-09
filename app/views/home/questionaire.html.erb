@@ -24,6 +24,7 @@
             <% end %>
         </ul>
         <br/>
+        <%= hidden_field_tag :guest_name, @is_guest%>
         <div class="d-grid gap-2 col-6 mx-auto">
         <%= form.submit "Submit", class:"btn btn-primary" %>
         </div>

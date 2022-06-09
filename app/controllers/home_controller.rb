@@ -6,10 +6,17 @@ class HomeController < ApplicationController
   end
   def launch
     @employees = current_user.employees.search(params[:search]).order('id ASC')
+    @guests = current_user.guests.all
+    @guests.each do |guest| 
+      if guest.signed_in != true
+        guest.destroy
+      end
+    end
   end
   def questionaire
-    if (params[:guest_name])
+    if params[:guest_name].present?
       @current_employee = Guest.find(params[:id])
+      @is_guest = true
     else
       @current_employee = Employee.find(params[:id])
     end
@@ -22,7 +29,7 @@ class HomeController < ApplicationController
       @current_employee.update(answered_yes: joined)
     end
     #just button handler while debugging, delete this and button
-    #on questionaire later
+    #at bottom of questionaire later
     if params[:remove_answer]
       #array = Array.new
       #array = @current_employee.answered_yes.split('~')
@@ -32,7 +39,7 @@ class HomeController < ApplicationController
     end
     if params[:commit].present?
       onlyanswers = request.request_parameters
-      onlyanswers = onlyanswers.except(:id, :commit, :authenticity_token)
+      onlyanswers = onlyanswers.except(:id, :commit, :authenticity_token, :guest_name)
       if onlyanswers.count != @questions.count
         flash.now.notice = "Please answer each question" and return
       end
@@ -55,6 +62,12 @@ class HomeController < ApplicationController
   def confirmation
   end
   def signoutt
+    @guests = current_user.guests.all
+    @guests.each do |guest| 
+      if guest.signed_in != true
+        guest.destroy
+      end
+    end
   end
   def failed
   end
