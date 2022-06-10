@@ -3,7 +3,8 @@ class Employee < ApplicationRecord
     
     def self.search(search)
         if search
-            employeename = Employee.find_by(first_name: search)
+            #employeename = Employee.find_by(first_name: search)
+            employeename = Employee.where("lower(first_name) = ?", search.downcase).first
             if employeename
                 self.where(id: employeename)
             else
