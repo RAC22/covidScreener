@@ -6,12 +6,7 @@ class HomeController < ApplicationController
   end
   def launch
     @employees = current_user.employees.search(params[:search]).order('id ASC')
-    @guests = current_user.guests.all
-    @guests.each do |guest| 
-      if guest.signed_in != true
-        guest.destroy
-      end
-    end
+    signout_guest()
   end
   def questionaire
     if params[:guest_name].present?
@@ -62,14 +57,18 @@ class HomeController < ApplicationController
   def confirmation
   end
   def signoutt
+    signout_guest()
+  end
+  def failed
+    signout_guest()
+  end
+  def signout_guest
     @guests = current_user.guests.all
     @guests.each do |guest| 
       if guest.signed_in != true
         guest.destroy
       end
     end
-  end
-  def failed
   end
 
 end
