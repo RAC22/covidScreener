@@ -23,15 +23,6 @@ class HomeController < ApplicationController
       joined = array.join('~')
       @current_employee.update(answered_yes: joined)
     end
-    #just button handler while debugging, delete this and button
-    #at bottom of questionaire later
-    if params[:remove_answer]
-      #array = Array.new
-      #array = @current_employee.answered_yes.split('~')
-      #array.delete(params[:remove_answer])
-      #joined = array.join('~')
-      @current_employee.update(answered_yes: "")
-    end
     if params[:commit].present?
       onlyanswers = request.request_parameters
       onlyanswers = onlyanswers.except(:id, :commit, :authenticity_token, :guest_name)

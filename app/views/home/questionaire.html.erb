@@ -31,10 +31,4 @@
     <% end %>
     <br/>    
 </div>
-<%= form_with do |f|%>
-    <%= hidden_field_tag :id, @current_employee.id %>
-    <%= f.radio_button :remove_answer , '', :checked => false, :onclick =>"this.parentNode.submit()" %>
-<% end %>
-
-                        <%= @current_employee.answered_yes %>
 
