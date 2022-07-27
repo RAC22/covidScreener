@@ -7,7 +7,7 @@ The app provides a sign in/sign out interface for facilities that would like to 
 Employees and/or guests will be asked to fill out a questionaire when attempting to sign in.
 # Questionnairee
 
-The questions asked should all imply that "no" implies not at risk for covid infection.
+The questions asked should all be structured that "no" implies not at risk for covid infection.
 
 ![Questionnaire](https://media.giphy.com/media/scT1PaBBsFoGQiExRG/giphy.gif)
 
