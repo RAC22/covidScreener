@@ -18,5 +18,5 @@ The questions asked should all imply that "no" implies not at risk for covid inf
 Project can be viewed live at https://covidscreen.herokuapp.com/ (this is a free tier heroku deployment, so please give it a few seconds to spin up a dyno)
 
 Please sign in with demo credentials
-*Email: demo@demo.com
-*Password: demo123
+* Email: demo@demo.com
+* Password: demo123
