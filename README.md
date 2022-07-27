@@ -1,6 +1,6 @@
 # README
 
-![Manage](https://i.imgur.com/GD6x3Wn.png)
+![Imgur](https://i.imgur.com/GD6x3Wn.png?1)
 
 # Headline.. 
 
